@@ -1,0 +1,1 @@
+(function(e){e.fn.equalHeight=function(){var t=0;this.each(function(){var n=e(this).height();n>t&&(t=n)}),this.each(function(){e(this).css({"min-height":t})})}})(jQuery);
