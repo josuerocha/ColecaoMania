@@ -9,7 +9,6 @@ function submitonEnter(evt)
 
 function ValidaDtNasc()
 {
-    alert('entrou');
     var hoje = new Date();
     var data = document.getElementById('dtNasc').value;
     data = new Date(data);
@@ -17,7 +16,7 @@ function ValidaDtNasc()
     if (data.getTime() > hoje.getTime())
     {
         alert("Data Inválida!");
-        document.getElementById('dtNasc').focus();
+        //document.getElementById('dtNasc').focus();
     }
 }
 
