@@ -143,7 +143,7 @@ class MensagemDAO extends ACrudDAO {
         $mensagens = array();
         try {
             $this->conectar();
-
+ 
             $queryID = "select idUsuEnvia from tbmensagem where idUsuRecebe={$_SESSION["codigo"]} GROUP by idUsuEnvia ORDER by data, hora";
             $resultadoID = $this->conexao->query($queryID);
             while ($registro1 = mysqli_fetch_assoc($resultadoID)) {
