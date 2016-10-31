@@ -4,7 +4,7 @@ require_once 'BancoDados.php';
 
 abstract class ACrudDAO 
 {
-
+//teste
     protected $conexao;
 
     protected function conectar() 
