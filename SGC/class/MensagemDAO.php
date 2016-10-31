@@ -148,9 +148,9 @@ class MensagemDAO extends ACrudDAO {
             $resultadoID = $this->conexao->query($queryID);
             while ($registro1 = mysqli_fetch_assoc($resultadoID)) {
                 $idUsuEnvia = $registro1['idUsuEnvia'];
-                echo $idUsuEnvia . "<br>";
+                //echo $idUsuEnvia . "<br>";
                 $query = "select * from tbmensagem where idUsuRecebe={$_SESSION["codigo"]} and idUsuEnvia={$idUsuEnvia} ORDER by idMensagem desc LIMIT 1";
-                echo $query;
+                //echo $query;
                 $resultado = $this->conexao->query($query);
                 //$this->desconectar();
                 //while ($registro = mysqli_fetch_assoc($resultado)) {
