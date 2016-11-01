@@ -4,6 +4,19 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+input:focus:invalid, textarea:focus:invalid  { 
+/* when a field is considered invalid by the browser */
+    background: #fff url() no-repeat 98% center  !important;
+    box-shadow: 0 0 5px #d45252 !important;
+    border-color: #b03535 !important;
+}
+input:focus:valid, textarea:focus:valid  { 
+/* when a field is considered invalid by the browser */
+    background: #fff url() no-repeat 98% center  !important;
+    box-shadow: 0 0 5px #00FF00 !important;
+    border-color: ##006400 !important;
+}
+
 html,
 body {
     width: 100%;
@@ -473,4 +486,12 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
+}
+
+/*mostrar borda vermelha*/
+input:focus:invalid, textarea:focus:invalid  { 
+/* when a field is considered invalid by the browser */
+    background: #fff url() no-repeat 98% center !important;
+    box-shadow: 0 0 5px #d45252 !important;
+    border-color: #b03535 !important;
 }
