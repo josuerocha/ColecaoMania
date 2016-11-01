@@ -9,6 +9,10 @@ $idioma = new Idioma();
 $idiomas = array();
 $idiomas = $idiomaDAO->listar();
 ?>
+
+  
+
+
 <!-- DADOS ================================================== -->
 <div class="container">
     <div class="row">
@@ -45,7 +49,7 @@ $idiomas = $idiomaDAO->listar();
                 </div><!-- /control-group -->
 
                 <div class="control-group">
-                    <input type="date" placeholder="Data de Nascimento" style="width:127px;" class="input-medium" id="dtNasc" onblur="ValidaDtNasc()" name="dtNasc" value="<?php echo $usuario->getDataNasc() ?>" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1910-01-01" max="1997-12-31"  maxlength="10"  required="required" > 
+                    <input type="text" placeholder="Data de Nascimento" style="width:127px;" class="input-medium" id="dtNasc" onblur="ValidaDtNasc()" name="dtNasc" value="<?php echo $usuario->getDataNasc() ?>" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1910-01-01" max="1997-12-31"  maxlength="10"  required="required" > 
                      <input type="text" placeholder="Telefone" style="width:130px;" class="input-medium form-horizontal" id="telefone" name="telefone" value="<?php echo $usuario->getTelefone() ?>" maxlength="8" >
                 </div><!-- /control-group -->
 
@@ -76,6 +80,29 @@ $idiomas = $idiomaDAO->listar();
         </div>
     </div>
 </div>
+
+
+ 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Referência do arquivo JS do plugin após carregar o jquery -->
+      <!-- Datepicker -->
+      <script src="componentes/js/bootstrap-datepicker.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('#dtNasc').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+        });
+      });
+    </script>
+
+
+
 
 
 

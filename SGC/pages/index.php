@@ -46,8 +46,7 @@ $idiomas = $idiomaDAO->listar();
 
 
         <!-- Datepicker -->
-      <link href="componentes/css/datepicker.css" rel="stylesheet">
-
+      
     <!-- Declaração padrão de arquivos do bootstrap -->
       <!-- Bootstrap -->
      
