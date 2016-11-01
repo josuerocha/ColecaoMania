@@ -4,7 +4,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-	$("#telefone").mask("(999)9999-9999");
+	$("#telefone").mask("(999)99999-9999");
 });
 
 $(document).ready(function(){
