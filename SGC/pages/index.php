@@ -41,6 +41,30 @@ $idiomas = $idiomaDAO->listar();
         <!-- Custom CSS -->
         <link rel="stylesheet" href="componentes/css/pginicial/creative.css" type="text/css">
 
+
+
+
+
+        <!-- Datepicker -->
+      <link href="componentes/css/datepicker.css" rel="stylesheet">
+
+    <!-- Declaração padrão de arquivos do bootstrap -->
+      <!-- Bootstrap -->
+     
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+
+
+
+
+
+
+
     </head>
 
     <body id="page-top">
@@ -110,7 +134,7 @@ $idiomas = $idiomaDAO->listar();
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="date" class="form-control" name="dtNasc" id="dtNasc" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1910-01-01" max="1997-12-31"  maxlength="10"  required="required" >
+                                    <input type="text" class="form-control" name="dtNasc" id="dtNasc" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1910-01-01" max="1997-12-31"  maxlength="10"  required="required" >
                                 </div>
 
                                 <div class="form-group">
@@ -311,6 +335,30 @@ $idiomas = $idiomaDAO->listar();
             <!-- Custom Theme JavaScript -->
             <script src="componentes/js/pginicial/creative.js"></script>
             <script src="../pages/componentes/js/pginicial/valida.js" type="text/javascript"></script>
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Referência do arquivo JS do plugin após carregar o jquery -->
+      <!-- Datepicker -->
+      <script src="componentes/js/bootstrap-datepicker.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('#dtNasc').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+        });
+      });
+    </script>
+
+
+
+
     </body>
 
 </html>

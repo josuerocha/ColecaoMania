@@ -21,7 +21,7 @@ $paises = $paisDAO->listar();
                  </div>
                 
                 <div class="control-group">
-                    <input type="date" placeholder="Data" class="input-medium" name="data" id="data" onblur="ValidaData()" min="15" maxlength="15"  required >
+                    <input type="text" placeholder="Data" class="input-medium" name="data" id="data" onblur="ValidaData()" min="15" maxlength="15"  required >
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" class="input-mini form-horizontal" placeholder="hora" id="hora" name="hora" onblur="ValidaHora(this.value)" value="" maxlength="5" required > 
                 </div><!-- /control-group -->
@@ -76,4 +76,22 @@ $paises = $paisDAO->listar();
             </form>
         </div>
     </div>
+
 </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Referência do arquivo JS do plugin após carregar o jquery -->
+      <!-- Datepicker -->
+      <script src="componentes/js/bootstrap-datepicker.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('#data').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+        });
+      });
+    </script>
