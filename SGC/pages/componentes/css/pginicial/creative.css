@@ -15,7 +15,7 @@ input:focus:valid, textarea:focus:valid  {
 /* when a field is considered invalid by the browser */
     background: #fff url() no-repeat 98% center  !important;
     box-shadow: 0 0 5px #00FF00 !important;
-    border-color: ##006400 !important;
+    border-color: #006400 !important;
 }
 
 html,
