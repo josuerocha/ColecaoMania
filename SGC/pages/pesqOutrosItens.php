@@ -1,3 +1,5 @@
+
+
 <?php
 require_once '../class/ColecaoDAO.php';
 require_once '../class/Colecao.php';
@@ -57,6 +59,7 @@ if ($_POST["filtro"] == 3) {
 <!-- PESQUISA DE ITENS DE OUTROS USUARIOS
 ================================================== -->
 <div class="container">
+    
     <h2 align="center">Pesquisa de Itens </h2><br>  
     <form method="post" enctype="multipart/form-data" name="form1"  action="menu.php?pagina=pesqOutrosItens">
         
