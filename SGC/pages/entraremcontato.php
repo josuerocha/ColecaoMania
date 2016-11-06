@@ -77,7 +77,7 @@ $usuEnvia = $usuarioDAO->buscarPorId($_SESSION["codigo"]);
                 <!-- chat container, use mscrollbar -->
                 <div id="chat" class="chat-container" data-scrollbar="mscroll" data-theme="dark-thick" data-button="true" style="height: 420px;max-height: 420px;">
                     <!-- chat module -->
-                    <div class="chat-module">
+                    <div id="lugar" class="chat-module">
                         <!-- chat -->
                         <ol class="chats">
                             <?php
@@ -129,7 +129,7 @@ $usuEnvia = $usuarioDAO->buscarPorId($_SESSION["codigo"]);
                                 <input type="hidden" name="hora" id="hora" value="<?php echo date("H:i:s"); ?>"/>
                                 <input type="hidden" name="foto" id="foto" value="<?php echo "../" . $caminhoImagens . "" . $usuEnviaMsg->getImagem() ?>"/>
                                 <input type="hidden" name="nome" id="nome" value="<?php echo $usuEnviaMsg->getNome(); ?>"/>
-                                <input class="input-block-level" name="chat-text" id="chat-text" type="text" autocomplete="off" onkeypress="submitonEnter(event);" /> 
+                                <input class="input-block-level" name="chattext" id="chat-text" type="text" autocomplete="off" onkeypress="submitonEnter(event);" /> 
                                 <button class="btn bg-cyan" type="submit"><i class="aweso-comment-alt"></i></button>
                             </div>
                         </form>
@@ -151,7 +151,7 @@ $usuEnvia = $usuarioDAO->buscarPorId($_SESSION["codigo"]);
                                 <input type="hidden" name="hora" id="hora" value="<?php echo date("H:i:s"); ?>"/>
                                 <input type="hidden" name="foto" id="foto" value="<?php echo "../" . $caminhoImagens . "" . $usuEnviaMsg->getImagem() ?>"/>
                                 <input type="hidden" name="nome" id="nome" value="<?php echo $usuEnviaMsg->getNome(); ?>"/>
-                                <input class="input-block-level" name="chat-text" id="chat-text" type="text" autocomplete="off" onkeypress="submitonEnter(event);" /> 
+                                <input class="input-block-level" name="chattext" id="chat-text" type="text" autocomplete="off" onkeypress="submitonEnter(event);" /> 
                                 <button class="btn bg-cyan" type="submit"><i class="aweso-comment-alt"></i></button>
                             </div>
                         </form>
@@ -165,3 +165,5 @@ $usuEnvia = $usuarioDAO->buscarPorId($_SESSION["codigo"]);
             </div>
         </div>
  
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                        <script src="componentes/js/entraremcontato.js"></script>
