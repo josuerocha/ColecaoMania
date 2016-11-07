@@ -1,5 +1,4 @@
 <?php
-    $caminhoServer = "C:/xampp/htdocs/SGC";
+    $caminhoServer = "C:/xampp/htdocs/IHCTP/SGC";
     $caminhoImagens = "/pages/componentes/img/usuario/" ;
 ?>
-
