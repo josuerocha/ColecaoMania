@@ -294,10 +294,9 @@ if (!isset($_SESSION['codigo'])) {
                                             <li><a tabindex="-1" href="menu.php?pagina=usuarios">Usuários</a></li>
                                             <li><a tabindex="-1" href="menu.php?pagina=idiomas">Idioma</a></li>
                                             <li><a tabindex="-1" href="menu.php?pagina=paises">País</a></li>
-                                            <li class="divider"></li>
-                                            <li class="dropdown-submenu">
+                                              <li class="dropdown-submenu">
                                                 <a tabindex="-1">Tipos De Coleção</a>
-                                                <ul class="dropdown-menu " style="right:-160px;">
+                                                <ul class="dropdown-menu sub-menu" style="right:-160px;">
                                                     <li><a tabindex="-1" href="menu.php?pagina=tiposDeColecao">Novo </a></li>
                                                     <li><a tabindex="-1" href="menu.php?pagina=sugestoes">Sugestões</a></li>
                                                 </ul>
