@@ -4,6 +4,7 @@ session_start();
 require_once '../class/ItemColecaoDAO.php';
 require_once '../control/caminhos.php';
 require_once '../class/UsuarioSeguidoDAO.php';
+require_once '../control/funcoes.php';
 
 $itemColecao = new ItemColecao();
 $itemColecaoDAO = new ItemColecaoDAO();
@@ -50,6 +51,26 @@ if (!empty($_FILES["arquivo"]["name"])) {
                 move_uploaded_file($_FILES["arquivo"]["tmp_name"], ".." . $caminhoImagens . $geraNome); //renomeia
                 $itemColecao->setImagem($geraNome);
             }
+
+            $Image = new Image();
+            $Image->resize(".." . $caminhoImagens . $geraNome, 200, 150);
+
+            unlink($caminhoServer . $caminhoImagens . $geraNome);
+
+            if($_FILES["arquivo"]["type"] == "image/png")
+            {
+                $tipo = 1;
+            }
+            if(($_FILES["arquivo"]["type"] == "image/jpg") || ($_FILES["arquivo"]["type"] == "image/jpeg"))
+            {
+                $tipo = 2;
+            }
+            if($_FILES["arquivo"]["type"] == "image/gif")
+            {
+                $tipo = 3;
+            }
+
+            $Image->saveImage($caminhoServer . $caminhoImagens . $geraNome, $tipo);
         }
     } else {
         echo "<script>alert('Imagem Inválida!');";
