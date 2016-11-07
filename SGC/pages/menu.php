@@ -146,10 +146,8 @@ if (!isset($_SESSION['codigo'])) {
                                         <li><a tabindex="-1" href="menu.php?pagina=dados">Dados Pessoais</a></li>
                                         <li><a tabindex="-1" href="menu.php?pagina=endereco">Endereço</a></li>
                                         <li><a tabindex="-1" href="menu.php?pagina=senha">Senha</a></li>
-                                        <li class="divider"></li>
                                         <li><a tabindex="-1" href="#" onclick="javascript: if (confirm('Você realmente deseja desativar sua conta?'))
                                                     location.href = '../control/usuarioExcluir.php'">Desativar Conta</a></li>
-                                        <li class="divider"></li>
                                         <li><a tabindex="-1" href="#" onclick="javascript: if (confirm('Sair?'))
                                                     location.href = '../control/usuarioSair.php'">Sair</a></li>
                                     </ul>
