@@ -42,52 +42,16 @@ $idiomas = $idiomaDAO->listar();
 
 
 
-        <!-- CSS
-        ================================================== -->
-        <link href="componentes/css/bootstrap.css" rel="stylesheet" />
-        <link href="componentes/css/bootstrap-responsive.css" rel="stylesheet" />
+        
+
+        <!--CSS -->
+        <link href="componentes/css/bootstrap.css" rel="stylesheet" /> <!-- Esse Css dá erro-->
+        <!--<link href="componentes/css/bootstrap-responsive.css" rel="stylesheet" />-->
         <link href="componentes/css/metro-bootstrap.css" rel="stylesheet" />
-        <link href="componentes/css/metro.css" rel="stylesheet" />
-        <link href="componentes/css/metro-responsive.css" rel="stylesheet" />
-        <link href="componentes/css/metro-helper.css" rel="stylesheet" />
-        <link href="componentes/css/metro-icons.css" rel="stylesheet" />
-
-        <link href="componentes/css/font-awesome.css" rel="stylesheet" />
-        <link href="componentes/css/m-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" /> 
-        <link href="componentes/css/select2/select2-metro.css" rel="stylesheet" />
-        <link href="componentes/css/wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" />
-        <link href="componentes/css/datepicker/datepicker.css" rel="stylesheet" />
-        <link href="componentes/css/timepicker/bootstrap-timepicker.css" rel="stylesheet" />
-        <!-- <link href="componentes/css/datetimepicker/datetimepicker.css" rel="stylesheet" />  
-        <link href="componentes/css/daterangepicker/daterangepicker.css" rel="stylesheet" /> -->
-        <link href="componentes/css/colorpicker/bootstrap-colorpicker.css" rel="stylesheet" />
-        <link href="componentes/css/lightbox.css" rel="stylesheet" />
-
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="componentes/ico/apple-touch-icon-144-precomposed.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="componentes/ico/apple-touch-icon-114-precomposed.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="componentes/ico/apple-touch-icon-72-precomposed.png" />
-        <link rel="apple-touch-icon-precomposed" href="componentes/ico/apple-touch-icon-57-precomposed.png" />
-        <link rel="shortcut icon" href="componentes/img/favicon.png" />
-        <link href="componentes/css/icomoon.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <!-- Datepicker -->
-        <link href="componentes/css/datepicker.css" rel="stylesheet">
-
-
-        <!-- Datepicker -->
-
-        <!-- Declaração padrão de arquivos do bootstrap -->
-        <!-- Bootstrap -->
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-
-
+        <!--<link href="componentes/css/metro.css" rel="stylesheet" />-->
+        <!--<link href="componentes/css/metro-responsive.css" rel="stylesheet" />-->
+        <!--<link href="componentes/css/metro-helper.css" rel="stylesheet" />-->
+        <!--<link href="componentes/css/metro-icons.css" rel="stylesheet" />-->
 
 
 
@@ -95,7 +59,7 @@ $idiomas = $idiomaDAO->listar();
 
     </head>
 
-    <body id="page-top">
+    <body  id="page-top">
 
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
@@ -111,7 +75,7 @@ $idiomas = $idiomaDAO->listar();
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
                             <a  class="page-scroll" href="index.php">Faça parte</a>
@@ -144,17 +108,6 @@ $idiomas = $idiomaDAO->listar();
         </nav>
 
         <header>
-
-
-
-
-
-
-
-
-
-
-
 
         </header>
         <?php
@@ -216,11 +169,11 @@ $idiomas = $idiomaDAO->listar();
 
         <!-- PESQUISA DE ITENS DE OUTROS USUARIOS
         ================================================== -->
-        <div class="container">
+        <div class="container" >
             <h2 align="center">Pesquisa de Itens </h2><br>  
             <form method="post" enctype="multipart/form-data" name="form1"  action="pesqItensIndex.php">
 
-                <div class="span12 row">
+                <div class="span12 row" >
                     <div class="span3 control-group">
 
                         <select class="input-xlarge" id="tipo" name="tipo" onblur="ValidaTipo();" onChange="" required>
