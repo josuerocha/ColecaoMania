@@ -1,113 +1,4 @@
-<?php
-ini_set('default_charset', 'UTF-8');
 
-require_once '../class/IdiomaDAO.php';
-require_once '../class/Idioma.php';
-require_once '../class/Conecta.php';
-require_once '../class/ACrudDAO.php';
-
-$idiomaDAO = new IdiomaDAO();
-$idioma = new Idioma();
-$idiomas = array();
-$idiomas = $idiomaDAO->listar();
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>COLEÇÃO mania</title>
-        <link rel="icon" href="componentes/img/favicon.png">
-        <!-- Bootstrap Core CSS -->
-        <!-- <link rel="stylesheet" href="componentes/css/pginicial/bootstrapinicio.min.css" type="text/css">-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">    
-
-        <!-- Custom Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="componentes/font-awesome/css/font-awesome.min.css" type="text/css">
-
-        <!-- Plugin CSS -->
-        <link rel="stylesheet" href="componentes/css/pginicial/animate.min.css" type="text/css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="componentes/css/pginicial/creative.css" type="text/css">
-
-
-
-        
-
-        <!--CSS -->
-        <link href="componentes/css/bootstrap.css" rel="stylesheet" /> <!-- Esse Css dá erro-->
-        <!--<link href="componentes/css/bootstrap-responsive.css" rel="stylesheet" />-->
-        <link href="componentes/css/metro-bootstrap.css" rel="stylesheet" />
-        <!--<link href="componentes/css/metro.css" rel="stylesheet" />-->
-        <!--<link href="componentes/css/metro-responsive.css" rel="stylesheet" />-->
-        <!--<link href="componentes/css/metro-helper.css" rel="stylesheet" />-->
-        <!--<link href="componentes/css/metro-icons.css" rel="stylesheet" />-->
-
-
-
-
-
-    </head>
-
-    <body  id="page-top">
-
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">COLEÇÃO mania</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a  class="page-scroll" href="index.php">Faça parte</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="index.php?#services">Sobre</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="index.php#portfolio">Social</a>
-                        </li>
-
-                        <li>
-                            <a class="page-scroll" href="pesqItensIndex.php">Pesquisar itens</a>
-                        </li>
-                    </ul>
-                    <!--LOGIN-->
-                    <form class="navbar-form pull-right"  action="../control/loginValidar.php" method="post">
-                        <input type="text" name="emailLogin" id="emailLogin" class="span6 input-sm form-control" required pattern="^([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+$" maxlength="100" placeholder="Login">
-
-                        <input type="password" name="senhaLogin" id="senhaLogin" class="span6 input-sm form-control" maxlength="8" min="8" required placeholder="Senha">
-                        <button type="submit" name="login" class="span1 btn-link form-control">Entrar</button>
-
-                    </form>
-                    <!--LOGIN-->
-                </div>
-                <!-- /.navbar-collapse -->
-
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-
-        <header>
 
         </header>
         <?php
@@ -171,7 +62,7 @@ $idiomas = $idiomaDAO->listar();
         ================================================== -->
         <div class="container" >
             <h2 align="center">Pesquisa de Itens </h2><br>  
-            <form method="post" enctype="multipart/form-data" name="form1"  action="pesqItensIndex.php">
+            <form method="post" enctype="multipart/form-data" name="form1"  action="pesqOutrosItensIndex.php">
 
                 <div class="span12 row" >
                     <div class="span3 control-group">
@@ -304,6 +195,3 @@ if (isset($_POST["filtro"])) {
         <br><br>
     </div>
 
-</body>
-
-</html>
