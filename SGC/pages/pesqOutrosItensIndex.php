@@ -76,7 +76,7 @@
                             <li class="dropdown">
                                 <a href="index.php#services">
                                     Sobre &nbsp<i class="w-icon-white w-icon-2x"></i>
-                                </a>
+                                </a> 
 
                             </li>
                             <li class="dropdown">
