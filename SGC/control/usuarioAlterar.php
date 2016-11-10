@@ -3,6 +3,7 @@
 session_start();
 require_once '../class/UsuarioDAO.php';
 require_once '../control/caminhos.php';
+require_once '../control/funcoes.php';
 
 $usuario = new Usuario();
 $usuarioDAO = new UsuarioDAO();
@@ -34,15 +35,18 @@ if (!empty($_FILES["arquivo"]["name"]))
             //incluir ../pages/ + caminho inicial e verificar se é noimg.jpg se for n apagar função/pages/caminho
             //define-constante fazer um arquivo config como os caminhos do servidor e aplicação para usar salvar imagem como nome
             // unlink($usuario->getImagem());
-//echo $_FILES["arquivo"]["name"];
+            //echo $_FILES["arquivo"]["name"];
             if ($usuario->getImagem() != "noimg.png") 
             {
                 unlink($caminhoServer . "" . $caminhoImagens . "" . $usuario->getImagem());
             }
 
+            
             $usuario->setImagem("{$_FILES["arquivo"]["name"]}");
 
             $geraNome = utf8_decode($_POST["email"]) . time() . "." . substr($_FILES["arquivo"]["name"], -3);
+
+            //$imgRedimensionada = resize_image($_FILES["arquivo"]["tmp_name"], 200, 150); // Aqui a imagem é redimensionada
 
             if (file_exists(".." . $caminhoImagens . $_FILES["arquivo"]["name"])) 
             {
@@ -51,9 +55,31 @@ if (!empty($_FILES["arquivo"]["name"]))
                 $usuario->setImagem($geraNome);
             } else 
             {
-                move_uploaded_file($_FILES["arquivo"]["tmp_name"], ".." . $caminhoImagens . $geraNome); //renomeia
+                move_uploaded_file($_FILES["arquivo"]["tmp_name"], ".." . $caminhoImagens . $geraNome);
                 $usuario->setImagem($geraNome);
             }
+
+            $Image = new Image();
+            $Image->resize(".." . $caminhoImagens . $geraNome, 200, 150);
+
+            unlink($caminhoServer . $caminhoImagens . $geraNome);
+
+            if($_FILES["arquivo"]["type"] == "image/png")
+            {
+                $tipo = 1;
+            }
+            if(($_FILES["arquivo"]["type"] == "image/jpg") || ($_FILES["arquivo"]["type"] == "image/jpeg"))
+            {
+                $tipo = 2;
+            }
+            if($_FILES["arquivo"]["type"] == "image/gif")
+            {
+                $tipo = 3;
+            }
+
+            $Image->saveImage($caminhoServer . $caminhoImagens . $geraNome, $tipo);
+
+
         }
     } else 
     {

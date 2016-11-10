@@ -137,7 +137,7 @@ $idiomas = $idiomaDAO->listar();
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="dtNasc" id="dtNasc" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1910-01-01" max="1997-12-31"  maxlength="10"  required="required" >
+                                    <input type="text" class="form-control" name="dtNasc" id="dtNasc" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1910-01-01" max="1997-12-31"  maxlength="10"  required="required"  placeholder="Data de nascimento">
                                 </div>
 
                                 <div class="form-group">
