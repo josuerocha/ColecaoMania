@@ -93,6 +93,10 @@ $idiomas = $idiomaDAO->listar();
                         <li>
                             <a class="page-scroll" href="#portfolio">Social</a>
                         </li>
+                        
+                        <li>
+                            <a class="page-scroll" href="pesqOutrosItensIndex.php">Pesquisar itens</a>
+                        </li>
                     </ul>
                     <!--LOGIN-->
                     <form class="navbar-form pull-right"  action="../control/loginValidar.php" method="post">
@@ -170,7 +174,7 @@ $idiomas = $idiomaDAO->listar();
 
             </section>
             <hr class="primary">
-            <section id="services">
+            <section class="no-padding" id="services">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 text-center">
