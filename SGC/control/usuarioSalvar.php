@@ -20,7 +20,8 @@ $usuario->setTipo(2);
 
 if(strlen($senha) < 8 || $usuarioDAO->validaEmail($usuario->getEmail()))
 {
-    echo "<script>alert('Senha inválida ou email já existe!'); location.href='../pages/index.php';</script>"; 
+    $_SESSION['mensagemModal'] = 'Senha inválida ou email já existe!';
+    echo "<script> location.href='../pages/index.php';</script>"; 
 }else 
 {
     $senha = MD5($_POST["senha"]);
@@ -29,10 +30,12 @@ if(strlen($senha) < 8 || $usuarioDAO->validaEmail($usuario->getEmail()))
     if ($usuarioDAO->salvar($usuario)) 
     {
         $cod = $usuarioDAO->buscaIdPorEmail($_POST["email"]);
-        echo "<script>alert('Faça seu login!'); location.href='../pages/index.php';</script>";
+        $_SESSION['mensagemModal'] = 'Faça seu login!';
+        echo "<script> location.href='../pages/index.php';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao salvar.'); location.href='../pages/index.php';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao salvar.';
+        echo "<script> location.href='../pages/index.php';</script>";
     }
 }
 ?>
