@@ -40,7 +40,7 @@ if (!isset($_SESSION['codigo'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 
         <title>COLEÇÃO mania</title>
 
@@ -80,6 +80,7 @@ if (!isset($_SESSION['codigo'])) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
          <!-- Datepicker -->
       <link href="componentes/css/datepicker.css" rel="stylesheet">
+
 
     <!-- Declaração padrão de arquivos do bootstrap -->
       <!-- Bootstrap -->
@@ -308,7 +309,39 @@ if (!isset($_SESSION['codigo'])) {
                     </div>
                 </div>
             </div> 
-        </header> 
+        </header>
+
+        <!--- Para exibir a mensagem modal -->
+
+        <?php
+            if(isset($_SESSION['mensagemModal'])) // Se tiver mensagem, exibi-la na janela modal abaixo
+            {
+                $mensagem = $_SESSION["mensagemModal"];
+            }
+        ?>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        <b> Mensagem </b>
+                    </h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4><?php if(isset($mensagem)){ echo $mensagem; } ?></h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- Para exibir a mensagem modal --> 
+
 
         <br>
         <?php
@@ -359,6 +392,9 @@ if (!isset($_SESSION['codigo'])) {
                 <script type="text/javascript" src="componentes/js/demo/dashboard.js"></script>
         <?php }
     } ?>
+    
+    <!-- <script src="componentes/js/bootstrap.min2.js"></script> -->
+    
     <script type="text/javascript" src="componentes/js/datatables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="componentes/js/datatables/colvis/jquery-migrate-1.2.1.min.js"></script> <!-- required for ColVis.js -->
 
@@ -397,6 +433,18 @@ if (!isset($_SESSION['codigo'])) {
 
 
     <script type="text/javascript" src="componentes/js/lightbox.js"></script>
+
+    <!--- Para exibir a mensagem modal -->
+
+    <?php
+        if(isset($_SESSION['mensagemModal'])) // Se tiver mensagem, exibi-la na janela modal abaixo
+        {
+            echo '<script> $("#myModal").modal("show"); </script>';
+            unset($_SESSION["mensagemModal"]);
+        }
+    ?>
+
+    <!--- Para exibir a mensagem modal -->
 
 </body>
 </html>

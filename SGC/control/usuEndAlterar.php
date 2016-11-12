@@ -17,9 +17,11 @@ $usuario->setComplemento($_POST["comp"]);
 
 if ($usuarioDAO->salvar($usuario)) 
 {
-    echo "<script>alert('Salvo com sucesso!'); location.href='../pages/menu.php?pagina=endereco';</script>";
+    $_SESSION['mensagemModal'] = 'Salvo com sucesso!';
+   echo "<script> location.href='../pages/menu.php?pagina=endereco'; </script>";
 } else 
 {
-    echo "<script>alert('Erro ao salvar o Sucesso.'); location.href='../pages/menu.php?pagina=endereco';</script>";
+    $_SESSION['mensagemModal'] = 'Erro ao salvar o Sucesso';
+    echo "<script> location.href='../pages/menu.php?pagina=endereco'; </script>";
 }
 ?>
