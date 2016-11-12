@@ -11,9 +11,11 @@ $sugestaoTipo->setIdUsuSg($_SESSION["codigo"]);
 
 if ($sugestaoTipoDAO->salvar($sugestaoTipo)) 
 {
-       echo "<script>alert('Sugestão enviada ao Administrador.');location.href='../pages/menu.php?pagina=colecoes';</script>";
+    $_SESSION['mensagemModal'] = 'Sugestão enviada ao Administrador.';
+    echo "<script> location.href='../pages/menu.php?pagina=colecoes';</script>";
 } else 
 {
-    echo "<script>alert('Erro ao salvar.'); location.href='../pages/menu.php?pagina=colecoes';</script>";
+    $_SESSION['mensagemModal'] = 'Erro ao salvar.';
+    echo "<script> location.href='../pages/menu.php?pagina=colecoes';</script>";
 }
 ?>

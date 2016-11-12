@@ -10,15 +10,19 @@ $itemColecao->setIdItemColecao($_POST["cdI"]);
 
 if ($itemColecaoDAO->verificaDependencia($itemColecao->getIdItemColecao())) {
     if ($itemColecaoDAO->mudaStatus($itemColecao->getIdItemColecao(), 0)) {
-        echo "<script>alert('Item Excluído!'); location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
+        $_SESSION['mensagemModal'] = 'Item Excluído!';
+        echo "<script> location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
     } else {
-        echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+        echo "<script> location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
     }
 } else {
      if ( $itemColecaoDAO->excluir($itemColecao)) {
-        echo "<script>alert('Item Excluído!'); location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
+         $_SESSION['mensagemModal'] = 'Item Excluído!';
+        echo "<script> location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
     } else {
-        echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+        echo "<script> location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
     }
 }
 ?>

@@ -73,7 +73,8 @@ if (!empty($_FILES["arquivo"]["name"])) {
             $Image->saveImage($caminhoServer . $caminhoImagens . $geraNome, $tipo);
         }
     } else {
-        echo "<script>alert('Imagem Inválida!');";
+        $_SESSION['mensagemModal'] = 'Imagem Inválida!';
+        echo "<script> location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
     }
 } else {
     if($itemColecao->getIdItemColecao()==0){
@@ -116,8 +117,10 @@ if ($itemColecaoDAO->salvar($itemColecao)) {
             $notificacaoDAO->salvar($notificacao);
         }
     }
-    echo "<script>alert('Salvo com sucesso!'); location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
+    $_SESSION['mensagemModal'] = 'Salvo com sucesso!';
+    echo "<script> location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
 } else {
-    echo "<script>alert('Erro ao salvar.'); location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
+    $_SESSION['mensagemModal'] = 'Erro ao salvar.';
+    echo "<script> location.href='../pages/menu.php?pagina=itens&cd={$_POST["cd"]}';</script>";
 }
 ?>

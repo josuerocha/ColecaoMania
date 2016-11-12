@@ -11,10 +11,12 @@ $sugestaoTipo->setIdSugestaoTipo($_POST["cd"]);
 
     if ($sugestaoTipoDAO->excluir($sugestaoTipo)) 
     {
-        echo "<script>alert('Sugestão de Tipo Excluída!'); location.href='../pages/menu.php?pagina=sugestoes';</script>";
+        $_SESSION['mensagemModal'] = 'Sugestão de Tipo Excluída!';
+        echo "<script> location.href='../pages/menu.php?pagina=sugestoes';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao excluir Sugestao de Tipo.'); location.href='../pages/menu.php?pagina=sugestoes';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir Sugestao de Tipo.';
+        echo "<script> location.href='../pages/menu.php?pagina=sugestoes';</script>";
     }
 
 ?>

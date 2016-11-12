@@ -11,10 +11,12 @@ $tipoColecao->setIdTipoColecao($_POST["cd"]);
 
     if ($tipoColecaoDAO->excluir($tipoColecao)) 
     {
-        echo "<script>alert('Tipo de Coleção Excluído!'); location.href='../pages/menu.php?pagina=tiposDeColecao';</script>";
+        $_SESSION['mensagemModal'] = 'Tipo de Coleção Excluído!';
+        echo "<script> location.href='../pages/menu.php?pagina=tiposDeColecao';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=tiposDeColecao';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+        echo "<script> location.href='../pages/menu.php?pagina=tiposDeColecao';</script>";
     }
 
 ?>

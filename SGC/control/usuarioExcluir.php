@@ -15,12 +15,17 @@ if (!$usuarioDAO->adminCount())
     {
         $usuarioDAO->mudaTipo($_SESSION["codigo"], 2);
         session_destroy();
-        echo "<script>alert('Conta Desativada!'); location.href='../pages/index.php';</script>";
+
+        session_start();
+        $_SESSION['mensagemModal'] = 'Conta Desativada!';
+        echo "<script> location.href='../pages/index.php';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao desativar conta.'); location.href='../pages/menu.php';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao desativar conta.';
+        echo "<script> location.href='../pages/menu.php';</script>";
     }
 } else {
-    echo "<script>alert('Administrador não pode ser desativado!'); location.href='../pages/menu.php';</script>";
+    $_SESSION['mensagemModal'] = 'Administrador não pode ser desativado!';
+    echo "<script> location.href='../pages/menu.php';</script>";
 }
 ?>

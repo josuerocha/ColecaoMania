@@ -10,10 +10,12 @@ $itemColecao->setIdEvento($_POST["cd"]);
 
     if ($eventoDAO->excluir($itemColecao)) 
     {
-        echo "<script>alert('Evento Excluído!'); location.href='../pages/menu.php?pagina=eventos';</script>";
+        $_SESSION['mensagemModal'] = 'Evento Excluído!';
+        echo "<script> location.href='../pages/menu.php?pagina=eventos';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao excluir evento.'); location.href='../pages/menu.php';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir evento.';
+        echo "<script> location.href='../pages/menu.php';</script>";
     }
 
 ?>

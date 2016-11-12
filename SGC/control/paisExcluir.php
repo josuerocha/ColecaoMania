@@ -11,10 +11,12 @@ $pais->setIdPais($_POST["cd"]);
 
     if ($paisDAO->excluir($pais)) 
     {
-        echo "<script>alert('Pais Excluído!'); location.href='../pages/menu.php?pagina=paises';</script>";
+        $_SESSION['mensagemModal'] = 'País Excluído!';
+        echo "<script> location.href='../pages/menu.php?pagina=paises';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=paises';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+        echo "<script> location.href='../pages/menu.php?pagina=paises';</script>";
     }
 
 ?>

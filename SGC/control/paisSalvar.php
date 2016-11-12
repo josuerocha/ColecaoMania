@@ -12,10 +12,12 @@ if($paisDAO->validaNome($nome))
 {
     if(isset($_POST["cd"]))
     {
-    echo "<script>alert('Pais já existe.'); location.href='../pages/menu.php?pagina=novPais&cd={$_POST["cd"]}';</script>";
+        $_SESSION['mensagemModal'] = 'País já existe.';
+        echo "<script> location.href='../pages/menu.php?pagina=novPais&cd={$_POST["cd"]}';</script>";
     }else
     {
-         echo "<script>alert('Pais já existe.'); location.href='../pages/menu.php?pagina=novPais';</script>";
+        $_SESSION['mensagemModal'] = 'País já existe.';
+        echo "<script> location.href='../pages/menu.php?pagina=novPais';</script>";
     }
 }
 else{
@@ -29,10 +31,12 @@ else{
 
     if ($paisDAO->salvar($pais)) 
     {
-       echo "<script>alert('Pais Salvo!');location.href='../pages/menu.php?pagina=paises';</script>";
+        $_SESSION['mensagemModal'] = 'País Salvo!';
+       echo "<script> location.href='../pages/menu.php?pagina=paises';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao salvar.'); location.href='../pages/menu.php?pagina=paises';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao salvar.';
+        echo "<script> location.href='../pages/menu.php?pagina=paises';</script>";
     }
 }
 ?>
