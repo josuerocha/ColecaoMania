@@ -94,6 +94,7 @@ class ColecaoDAO extends ACrudDAO
             $colecao->setNome($registro['nome']);
             $colecao->setDescricao($registro['descricao']);
             $colecao->setIdUsuDono($registro['idUsuDono']);
+            $colecao->setIdFotoAlbum($registro['idFotoAlbum']);
         } catch (Exception $ex) 
         {
             echo $ex->getFile() . ' : ' . $ex->getLine() . ' : ' . $ex->getMessage();
@@ -153,6 +154,7 @@ class ColecaoDAO extends ACrudDAO
                 $colecao->setDescricao($registro['descricao']);
                 $colecao->setIdUsuDono($registro['idUsuDono']);
                 $colecao->setStatus($registro['status']);
+                $colecao->setIdFotoAlbum($registro['idFotoAlbum']);
                 array_push($colecoes, $colecao);
             }
             $resultado->close();

@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/class/Colecao.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/pages/itens.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/control/itemExcluir.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/pages/minhaListaDesejos.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/class/ItemColecaoDAO.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/pages/index.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/pages/pesqOutrosItensIndex.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/pages/pesqItensIndex.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/class/ColecaoDAO.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/pages/colecoes.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/control/itemFotoAlbum.php</file>
+            <file>file:/D:/xampp/htdocs/IHCTP/SGC/pages/pesqOutrosItens.php</file>
+        </group>
     </open-files>
 </project-private>

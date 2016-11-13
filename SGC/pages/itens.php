@@ -77,7 +77,7 @@ if (isset($_POST['cd'])) {
             <a><button type="submit" class="btn-link" >Entrar em contato&nbsp;<i class="aweso-comment aweso-large" /></i></button></a>
         </form>
         <h5><a href="menu.php?pagina=pesqOutrosItens"><i class="aweso-hand-left"> </i>&nbsp;Ir para pesquisa de itens</a></h5><br>
-<?php } ?>
+    <?php } ?>
 
     <form name="form1" method="post" enctype="multipart/form-data" class="pull-right" action="menu.php?pagina=pesqItens">
         <input type="hidden" id="cd" name="cd" value="<?php echo $colecao->getIdColecao() ?>"/>
@@ -102,7 +102,13 @@ if (isset($_POST['cd'])) {
                     <?php echo $itemColecao->getNome() ?>&nbsp&nbsp&nbsp<?php echo "Quantidade: " . $itemColecao->getQuantidade() ?><br>
                     <?php echo "Nº série: " . $itemColecao->getNroSerie() ?>
                     &nbsp&nbsp&nbsp
+
+
                     <?php
+                    //echo 'ID Item Colecao: '.$itemColecao->getIdItemColecao();
+                    //echo 'ID Album: '.$colecao->getIdFotoAlbum();
+
+
                     if ($itemColecao->getInteresse() == 1) {
                         echo 'Interesse: Doar';
                     }
@@ -132,31 +138,47 @@ if (isset($_POST['cd'])) {
                         <input type="hidden" id="cdI" name="cdI" value="<?php echo $itemColecao->getIdItemColecao() ?>"/>
                         <button type="submit" class="btn-link"><i class="aweso-trash aweso-large"></i></button>
                     </form>
-    <?php } else {
-        if (!$itemListaDesejosDAO->verificaItem($itemColecao->getIdItemColecao(), $listaDesejos->getIdListaDesejos())) {
-            ?>
-                        <form class="span1" name="frmLD" method="post" action="../control/listaDesejosSalvar.php">
-                            <input type="hidden" id="cd" name="cd" value="<?php echo $colecao->getIdColecao() ?>"/>
+                    <?php
+                    if ($itemColecao->getIdItemColecao() != $colecao->getIdFotoAlbum()) {
+                        ?>
+
+                        <form class="span1" name="frmExc" method="post" action="../control/itemFotoAlbum.php" >
+                            <input type="hidden" id="cd" name="cdC" value="<?php echo $itemColecao->getIdColecao() ?>"/>
                             <input type="hidden" id="cdI" name="cdI" value="<?php echo $itemColecao->getIdItemColecao() ?>"/>
-                            <a><button type="submit" class="btn-link"><i class="aweso-heart aweso-large" /></i></button></a>
-                        </form>   
-                <?php } else { ?> Está na sua lista de desejos<?php }
-    } ?>
-                </p>  
-            </div>
-            <?php
-            $cont++;
-            $totalPercorrido++;
+                            <button type="submit" class="btn-link"><i class="aweso-star aweso-large"></i></button>
+                        </form>
+
+
+                        <?php } ?>
+
+                        <?php
+                    } else {
+                        if (!$itemListaDesejosDAO->verificaItem($itemColecao->getIdItemColecao(), $listaDesejos->getIdListaDesejos())) {
+                            ?>
+                            <form class="span1" name="frmLD" method="post" action="../control/listaDesejosSalvar.php">
+                                <input type="hidden" id="cd" name="cd" value="<?php echo $colecao->getIdColecao() ?>"/>
+                                <input type="hidden" id="cdI" name="cdI" value="<?php echo $itemColecao->getIdItemColecao() ?>"/>
+                                <a><button type="submit" class="btn-link"><i class="aweso-heart aweso-large" /></i></button></a>
+                            </form>   
+                        <?php } else { ?> Está na sua lista de desejos<?php
+                        }
+                    }
+                    ?>
+                    </p>  
+                </div>
+                <?php
+                $cont++;
+                $totalPercorrido++;
+                ?>
+                <?php if ($cont == 4 || $totalPercorrido == sizeof($itensColecao)) {
+                    ?> 
+                </div> 
+                <?php
+                $cont = 1;
+            }
             ?>
-        <?php if ($cont == 4 || $totalPercorrido == sizeof($itensColecao)) {
-            ?> 
-            </div> 
-            <?php
-            $cont = 1;
-        }
+        <?php } if (sizeof($itensColecao) == 0) { ?><h4 align="center">Nenhum item encontrado.</h4> <?php }
         ?>
-<?php } if(sizeof($itensColecao)==0){ ?><h4 align="center">Nenhum item encontrado.</h4> <?php }
-?>
     <br><br>
 </div>
 

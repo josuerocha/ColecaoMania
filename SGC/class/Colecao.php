@@ -9,6 +9,7 @@ class Colecao
     public $idTipoColecao;
     public $idUsuDono;
     public $status;
+    public $idFotoAlbum;
 
     function __construct() 
     {
@@ -18,6 +19,7 @@ class Colecao
         $this->setDescricao("");
         $this->setIdTipoColecao(0);
         $this->setIdUsuDono(0);
+        $this->setIdFotoAlbum(0);
     }
 
     function __destruct() 
@@ -28,6 +30,16 @@ class Colecao
     function __toString() 
     {
         return $this->getNome();
+    }
+    
+    function getIdFotoAlbum()
+    {
+        return $this->idFotoAlbum;
+    }
+    
+    function setIdFotoAlbum($idFoto)
+    {
+        $this->idFotoAlbum = $idFoto;
     }
 
     function getStatus() 

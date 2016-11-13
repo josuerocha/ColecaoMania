@@ -132,8 +132,8 @@ if (isset($_POST["filtro"])) {
                     <div class="span4">
                         <a href="#"><!-- jquery abrir -->
                             <div  id="fade"> 
-                                <a class="example-image-link" href="<?php echo ".." . $caminhoImagens . "" . $itemColecao->getImagem() ?>" data-lightbox="example-set" data-title="Clique a direita para avançar.">
-                                    <img class="example-image" src="<?php echo ".." . $caminhoImagens . "" . $itemColecao->getImagem() ?>" alt=""/></a>
+                                <a class="example-image-link" href="<?php echo "componentes/img/usuario/" . $itemColecao->getImagem() ?>" data-lightbox="example-set" data-title="Clique a direita para avançar.">
+                                    <img class="example-image" src="<?php echo "componentes/img/usuario/" . $itemColecao->getImagem() ?>" alt=""/></a>
                             </div>
                         </a>
                         <p>

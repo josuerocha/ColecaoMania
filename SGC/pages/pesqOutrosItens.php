@@ -120,6 +120,10 @@ if ($_POST["filtro"] == 3) {
                     <?php echo "Nº série: " . $itemColecao->getNroSerie() ?>
                     &nbsp&nbsp&nbsp
                     <?php
+                    
+                    
+                    
+                    
                     if ($itemColecao->getInteresse() == 1) {
                         echo 'Interesse: Doar';
                     }

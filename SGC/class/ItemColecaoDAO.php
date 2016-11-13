@@ -392,6 +392,21 @@ where T.idTipoColecao='{$idTp}' and U.status=1 and I.status=1 group by U.idUsuar
         $situacao = ($quantidade > 0 ? TRUE : FALSE);
         return $situacao;
     }
+    
+    function alteraFotoAlbum($idColecao, $idItemColecao) {
+        
+        try {
+            $this->conectar();
+
+            $query = "update tbcolecao set idFotoAlbum = '{$idItemColecao}' where idColecao = '{$idColecao}'";
+            $this->conexao->query($query);
+
+            $this->desconectar();
+        } catch (Exception $ex) {
+            
+            echo $ex->getFile() . ' : ' . $ex->getLine() . ' : ' . $ex->getMessage();
+        }
+    }
 
 }
 
