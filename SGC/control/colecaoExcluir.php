@@ -27,15 +27,19 @@ foreach ($itens as $itemColecao) {
 
 if ($dependencia > 0) {
     if ($colecaoDAO->mudaStatus($colecao->getIdColecao(), 0)) {
-        echo "<script>alert('Coleção Excluída!'); location.href='../pages/menu.php?pagina=colecoes';</script>";
+        $_SESSION['mensagemModal'] = 'Coleção Excluída!';
+        echo "<script> location.href='../pages/menu.php?pagina=colecoes';</script>";
     } else {
-        echo "<script>alert('Erro ao excluir coleção.'); location.href='../pages/menu.php?pagina=colecoes';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir coleção.';
+        echo "<script> location.href='../pages/menu.php?pagina=colecoes';</script>";
     }
 } else {
     if ($colecaoDAO->excluir($colecao)) {
-        echo "<script>alert('Coleção Excluída!'); location.href='../pages/menu.php?pagina=colecoes';</script>";
+        $_SESSION['mensagemModal'] = 'Coleção Excluída!';
+        echo "<script> location.href='../pages/menu.php?pagina=colecoes';</script>";
     } else {
-        echo "<script>alert('Erro ao excluir coleção.'); location.href='../pages/menu.php?pagina=colecoes';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir coleção.';
+        echo "<script> location.href='../pages/menu.php?pagina=colecoes';</script>";
     }
 }
 ?>

@@ -24,10 +24,12 @@
             }else
             {
                 $usuarioDAO->mudaStatus($_SESSION["codigo"], 1);
-               echo "<script>alert('Você ativou sua conta. Seja bem vindo, novamente!'); location.href='../pages/menu.php';</script>";            
+                $_SESSION['mensagemModal'] = 'Você ativou sua conta. Seja bem vindo, novamente!';
+                echo "<script> location.href='../pages/menu.php';</script>";            
             }
 	}else{
-		echo "<script>alert('Dados inválidos !!!'); location.href='../pages/index.php';</script>"; 
+                $_SESSION['mensagemModal'] = 'Dados inválidos!!!';
+		echo "<script> location.href='../pages/index.php';</script>"; 
 	}
 	
 ?>

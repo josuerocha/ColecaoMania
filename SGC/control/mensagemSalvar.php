@@ -58,7 +58,7 @@ if (!empty($_POST["chattext"])) {
                                                 <?php 
                                                 if($usuEnviaMsg->getStatus()==1){
                                                 echo $usuEnviaMsg->getNome();}else{
-        echo 'Usuário Desativado';} ?> | <?php echo $mensagem->getHora() ?></time>
+        $_SESSION['mensagemModal'] = 'Usuário Desativado'; } ?> | <?php echo $mensagem->getHora() ?></time>
                                         </div>
                                 </li>
 

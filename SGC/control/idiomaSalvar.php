@@ -12,10 +12,12 @@ if($idiomaDAO->validaNome($nome))
 {
     if(isset($_POST["cd"]))
     {
-    echo "<script>alert('Idioma já existe.'); location.href='../pages/menu.php?pagina=novIdioma&cd={$_POST["cd"]}';</script>";
+        $_SESSION['mensagemModal'] = 'Idioma já existe.';
+        echo "<script> location.href='../pages/menu.php?pagina=novIdioma&cd={$_POST["cd"]}';</script>";
     }else
     {
-         echo "<script>alert('Idioma já existe.'); location.href='../pages/menu.php?pagina=novIdioma';</script>";
+        $_SESSION['mensagemModal'] = 'Idioma já existe.';
+        echo "<script> location.href='../pages/menu.php?pagina=novIdioma';</script>";
     }
 }
 else{
@@ -29,10 +31,12 @@ else{
 
     if ($idiomaDAO->salvar($idioma)) 
     {
-       echo "<script>alert('Idioma Salvo!');location.href='../pages/menu.php?pagina=idiomas';</script>";
+        $_SESSION['mensagemModal'] = 'Idioma já existe.';
+       echo "<script> location.href='../pages/menu.php?pagina=idiomas';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao salvar.'); location.href='../pages/menu.php?pagina=idiomas';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao salvar.';
+        echo "<script> location.href='../pages/menu.php?pagina=idiomas';</script>";
     }
 }
 ?>

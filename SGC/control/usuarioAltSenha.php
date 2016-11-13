@@ -11,7 +11,8 @@ $novaSenha = $_POST["senha"];
 
     if (strlen($novaSenha)<8) 
     {
-        echo "<script>alert('Nova senha inválida!'); location.href='../pages/menu.php?pagina=senha';</script>";
+        $_SESSION['mensagemModal'] = 'Nova senha inválida!';
+        echo "<script> location.href='../pages/menu.php?pagina=senha';</script>";
     } else 
     {
  
@@ -21,15 +22,18 @@ $novaSenha = $_POST["senha"];
          
          if($usuarioDAO->alterarSenha($usuario))
          {
-            echo "<script>alert('Senha salva com sucesso!'); location.href='../pages/menu.php?pagina=senha';</script>";
+            $_SESSION['mensagemModal'] = 'Senha salva com sucesso!';
+            echo "<script> location.href='../pages/menu.php?pagina=senha';</script>";
         } else 
         {
-            echo "<script>alert('Erro ao salvar senha.'); location.href='../pages/menu.php?pagina=senha';</script>";
+            $_SESSION['mensagemModal'] = 'Erro ao salvar senha.';
+            echo "<script> location.href='../pages/menu.php?pagina=senha';</script>";
         }
      }
      else 
      {
-        echo "<script>alert('Senha atual inválida!'); location.href='../pages/menu.php?pagina=senha';</script>";
+        $_SESSION['mensagemModal'] = 'Senha atual inválida!';
+        echo "<script> location.href='../pages/menu.php?pagina=senha';</script>";
      }
    }
 

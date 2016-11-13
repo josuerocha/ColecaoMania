@@ -11,10 +11,12 @@ $idioma->setIdIdioma($_POST["cd"]);
 
     if ($idiomaDAO->excluir($idioma)) 
     {
-        echo "<script>alert('Idioma Excluído!'); location.href='../pages/menu.php?pagina=idiomas';</script>";
+        $_SESSION['mensagemModal'] = 'Idioma Excluído!';
+        echo "<script> location.href='../pages/menu.php?pagina=idiomas';</script>";
     } else 
     {
-        echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=idiomas';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+        echo "<script> location.href='../pages/menu.php?pagina=idiomas';</script>";
     }
 
 ?>

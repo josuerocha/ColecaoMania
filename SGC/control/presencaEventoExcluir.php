@@ -19,9 +19,11 @@ $participacao->setIdUsuario($_SESSION["codigo"]);
 
 if ($eventoDAO->salvar($evento) && $participacaoDAO->excluir($participacao)) 
 {
-       echo "<script>alert('Salvo com sucesso!'); location.href='../pages/menu.php?pagina=euvou';</script>";
+    $_SESSION['mensagemModal'] = 'Salvo com sucesso!';
+    echo "<script> location.href='../pages/menu.php?pagina=euvou';</script>";
 } else 
 {
-    echo "<script>alert('Erro ao salvar.'); location.href='../pages/menu.php?pagina=euvou';</script>";
+    $_SESSION['mensagemModal'] = 'Erro ao salvar.';
+    echo "<script> location.href='../pages/menu.php?pagina=euvou';</script>";
 }
 ?>

@@ -27,25 +27,31 @@ $dep = $colecaoDAO->verificaDependencia($itemColecao->getIdColecao());
 if ($dep > 1) {//tem dependencia, não pode excluir coleção
     $itemListaDAO->excluir($itemLista);
     if ($itemColecaoDAO->excluir($itemColecao)) {
-        echo "<script>alert('Item Excluído!'); location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
+        $_SESSION['mensagemModal'] = 'Item Excluído!';
+        echo "<script> location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
     } else {
-        echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
+        $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+        echo "<script> location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
     }
 } else {
     if ($dep == 1) {
         $itemListaDAO->excluir($itemLista);
         $itemColecaoDAO->excluir($itemColecao);
         if ($colecaoDAO->excluir($colecao)) {
-            echo "<script>alert('Item Excluído!'); location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
+            $_SESSION['mensagemModal'] = 'Item Excluído!';
+            echo "<script> location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
         } else {
-            echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
+            $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+            echo "<script> location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
         }
     }
     if ($dep == 0) {
         if ($itemListaDAO->excluir($itemLista)) {
-            echo "<script>alert('Item Excluído!'); location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
+            $_SESSION['mensagemModal'] = 'Item Excluído!';
+            echo "<script> location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
         } else {
-            echo "<script>alert('Erro ao excluir item.'); location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
+            $_SESSION['mensagemModal'] = 'Erro ao excluir item.';
+            echo "<script> location.href='../pages/menu.php?pagina=minhaListaDesejos';</script>";
         }
     }
 }

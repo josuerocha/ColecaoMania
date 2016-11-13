@@ -17,7 +17,8 @@ if($usuario->getTipo() == 1)
 }
 if(!$usuarioDAO->adminCount() && $usuario->getTipo() == 1)
 {
- echo "<script>alert('Você é o único Administrador!'); location.href='../pages/menu.php?pagina=usuarios';</script>";
+    $_SESSION['mensagemModal'] = 'Você é o único Administrador!';
+    echo "<script> location.href='../pages/menu.php?pagina=usuarios';</script>";
 }else
 {
      
@@ -25,15 +26,18 @@ if ( $usuarioDAO->mudaTipo($_POST["cd"], $tipo))
 {
     if($tipo == 2 && $_POST["cd"] == $_SESSION["codigo"] )
     {
-         echo "<script>alert('Tipo alterado!'); location.href='../pages/menu.php?pagina=dados';</script>";
+        $_SESSION['mensagemModal'] = 'Tipo alterado!';
+        echo "<script> location.href='../pages/menu.php?pagina=dados';</script>";
     }else
     {
-        echo "<script>alert('Tipo alterado!'); location.href='../pages/menu.php?pagina=usuarios';</script>";
+        $_SESSION['mensagemModal'] = 'Tipo alterado!';
+        echo "<script> location.href='../pages/menu.php?pagina=usuarios';</script>";
     }
 }
 else
 {
-    echo "<script>alert('Erro ao alterar tipo'); location.href='../pages/menu.php?pagina=usuarios';</script>";
+    $_SESSION['mensagemModal'] = 'Erro ao alterar tipo.';
+    echo "<script> location.href='../pages/menu.php?pagina=usuarios';</script>";
 }
 }
 ?>
