@@ -1,4 +1,5 @@
-<?php
+﻿<?php
+session_start(); 
 ini_set('default_charset', 'UTF-8');
 
 require_once '../class/IdiomaDAO.php';
@@ -105,8 +106,6 @@ $idiomas = $idiomaDAO->listar();
                         <input type="password" name="senhaLogin" id="senhaLogin" class="span6 input-sm form-control" maxlength="8" min="8" required placeholder="Senha">
                         <button type="submit" name="login" class="span1 btn-link form-control">Entrar</button>
 
-                        <button type="button" name="recuperar" onclick="location.href = 'recuperar_senha.php';" class="span1 btn-link form-control">Esqueceu sua senha?</button>
-
                     </form>
                     <!--LOGIN-->
                 </div>
@@ -116,6 +115,36 @@ $idiomas = $idiomaDAO->listar();
             <!-- /.container-fluid -->
         </nav>
 
+        <!--- Para exibir a mensagem modal -->
+
+        <?php
+            if(isset($_SESSION['mensagemModal'])) // Se tiver mensagem, exibi-la na janela modal abaixo
+            {
+                $mensagem = $_SESSION["mensagemModal"];
+            }
+        ?>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        <b> Mensagem </b>
+                    </h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4><?php if(isset($mensagem)){ echo $mensagem; } ?></h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- Para exibir a mensagem modal --> 
 
         <header>
             <section id="facaParte">
@@ -363,6 +392,17 @@ $idiomas = $idiomaDAO->listar();
 
 
 
+    <!--- Para exibir a mensagem modal -->
+
+    <?php
+        if(isset($_SESSION['mensagemModal'])) // Se tiver mensagem, exibi-la na janela modal abaixo
+        {
+            echo '<script> $("#myModal").modal("show"); </script>';
+            unset($_SESSION["mensagemModal"]);
+        }
+    ?>
+
+    <!--- Para exibir a mensagem modal alterado -->
 
     </body>
 
