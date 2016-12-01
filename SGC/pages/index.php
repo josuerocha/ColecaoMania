@@ -105,6 +105,7 @@ $idiomas = $idiomaDAO->listar();
 
                         <input type="password" name="senhaLogin" id="senhaLogin" class="span6 input-sm form-control" maxlength="8" min="8" required placeholder="Senha">
                         <button type="submit" name="login" class="span1 btn-link form-control">Entrar</button>
+                        <button type="button" name="recuperar" onclick="location.href = 'recuperar_senha.php';" class="span1 btn-link form-control">Esqueceu sua senha?</button>
 
                     </form>
                     <!--LOGIN-->
