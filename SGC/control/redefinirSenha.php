@@ -11,7 +11,6 @@
   $senha = $_POST['senha'];
                    
   if(isset($_SESSION['codigo'])){
-      echo $_SESSION['codigo'];
       $usuario = $usuarioDAO->buscarPorId($_SESSION['codigo']);
 
       if($usuario->getRecuperarSenha() == 1){

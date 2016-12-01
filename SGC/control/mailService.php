@@ -39,7 +39,6 @@ $error = "Mailer Error: " . $mail->ErrorInfo;
 echo '<p id="para">'.$error.'</p>';
 }
 else {
-echo '<p id="para">Message sent!</p>';
 }
 
 }
