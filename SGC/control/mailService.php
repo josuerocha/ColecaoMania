@@ -15,6 +15,14 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 
+$mail->SMTPOptions = array(
+    'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    )
+);
+
 $mail->SMTPAuth = true;
 $mail->Username = "colecaomaniasgc@gmail.com";
 $mail->Password = "colecaomaniaihc";
