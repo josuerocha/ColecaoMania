@@ -10,7 +10,7 @@ $usuarioDAO = new UsuarioDAO();
 
 $usuario = $usuarioDAO->buscarPorId($_SESSION["codigo"]);
 $usuario->setNome($_POST["nome"]);
-$usuario->setEmail($_POST["email"]);
+//$usuario->setEmail($_POST["email"]);
 $usuario->setTelefone($_POST["telefone"]);
 $usuario->setDataNasc($_POST["dtNasc"]);
 $usuario->setIdIdioma($_POST["idioma"]);
