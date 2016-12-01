@@ -19,8 +19,14 @@
              // echo $_SESSION["codigo"]."  ".$usuario->getStatus();
               
             if($usuario->getStatus()==1){
-                header("location:../pages/menu.php");
-                
+                if($usuario->getConfirmado()==0){
+                    echo "<script>alert('Confirme seu e-mail utilizando a mensagem enviada em sua caixa de entrada.');</script>";
+                    echo "<script> location.href='../pages/index.php';</script>";
+                }
+
+                else if($usuario->getConfirmado()==1){
+                    header("location:../pages/menu.php");
+                }
             }else
             {
                 $usuarioDAO->mudaStatus($_SESSION["codigo"], 1);

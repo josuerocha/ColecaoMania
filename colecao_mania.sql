@@ -490,12 +490,13 @@ CREATE TABLE IF NOT EXISTS `tbusuario` (
 -- Extraindo dados da tabela `tbusuario`
 --
 
-INSERT INTO `tbusuario` (`idUsuario`, `nome`, `email`, `senha`, `tipo`, `imagem`, `idIdioma`, `dataNasc`, `numero`, `telefone`, `complemento`, `cep`, `cidade`, `bairro`, `rua`, `estado`, `idPais`, `status`) VALUES
-(20, 'MaÃ­sa', 'maisa@email.com', '25d55ad283aa400af464c76d713c07ad', 1, 'maisa@email.com1447710147.jpg', 3, '1994-01-09', '4969', '', 'Residencia', '35.183-000', 'TimÃ³teo', 'Alvorada', 'Avenida Ana Moura', 'MG', 1, 1),
-(21, 'maria', 'maria@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'noimg.png', 3, '1994-09-22', '', '', '', '', '', '', '', '', 1, 0),
-(22, 'Joao', 'joao@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'joao@email.com1447703730.png', 3, '1994-10-22', '400', '', '', '35.183-000', 'TimÃ³teo', 'Alvorada', 'Avenida Ana Moura', 'MG', 1, 1),
-(24, 'Ariane', 'ariane@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'ariane@email.com1445610389.jpg', 3, '1993-09-22', '', '', '', '', '', '', '', '', 1, 1),
-(25, 'Joana', 'joana@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'joana@email.com1447709543.jpg', 3, '1997-04-22', '222', '', '', '35.182-000', 'TimÃ³teo', 'Centro Sul', 'Avenida SÃ£o JoÃ£o', 'MG', 1, 1),(26, 'Josue', 'josuerocha@me.com', '25d55ad283aa400af464c76d713c07ad', 1, 'noimg.png', 3, '1993-28-12', '4969', '', 'Residencia', '35.180-054', 'TimÃ³teo', 'V Tecnicos', 'Rua trinta e sete', 'MG', 1, 1);
+INSERT INTO `tbusuario` (`idUsuario`, `nome`, `email`, `senha`, `tipo`, `imagem`, `idIdioma`, `dataNasc`, `numero`, `telefone`, `complemento`, `cep`, `cidade`, `bairro`, `rua`, `estado`, `idPais`, `status`,`confirmado`,`recuperarSenha`) VALUES
+(20, 'MaÃ­sa', 'maisa@email.com', '25d55ad283aa400af464c76d713c07ad', 1, 'maisa@email.com1447710147.jpg', 3, '1994-01-09', '4969', '', 'Residencia', '35.183-000', 'TimÃ³teo', 'Alvorada', 'Avenida Ana Moura', 'MG', 1, 1,1,0),
+(21, 'maria', 'maria@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'noimg.png', 3, '1994-09-22', '', '', '', '', '', '', '', '', 1, 0,1,0),
+(22, 'Joao', 'joao@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'joao@email.com1447703730.png', 3, '1994-10-22', '400', '', '', '35.183-000', 'TimÃ³teo', 'Alvorada', 'Avenida Ana Moura', 'MG', 1, 1,1,0),
+(24, 'Ariane', 'ariane@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'ariane@email.com1445610389.jpg', 3, '1993-09-22', '', '', '', '', '', '', '', '', 1, 1,1,0),
+(25, 'Joana', 'joana@email.com', '25d55ad283aa400af464c76d713c07ad', 2, 'joana@email.com1447709543.jpg', 3, '1997-04-22', '222', '', '', '35.182-000', 'TimÃ³teo', 'Centro Sul', 'Avenida SÃ£o JoÃ£o', 'MG', 1, 1,1,0),
+(26, 'Josue', 'josuerocha@me.com', '25d55ad283aa400af464c76d713c07ad', 1, 'noimg.png', 3, '1993-28-12', '4969', '', 'Residencia', '35.180-054', 'TimÃ³teo', 'V Tecnicos', 'Rua trinta e sete', 'MG', 1, 1,1,0);
 
 -- --------------------------------------------------------
 
