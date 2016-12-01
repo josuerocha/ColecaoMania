@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `tbcolecao` (
   `nome` varchar(255) DEFAULT NULL,
   `descricao` varchar(100) DEFAULT NULL,
   `idUsuDono` int(10) unsigned DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
+  `status` int(11) DEFAULT NULL,
+  `idFotoAlbum` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
