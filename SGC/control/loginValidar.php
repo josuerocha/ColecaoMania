@@ -1,7 +1,8 @@
 <?php	
         session_start();
 	require_once '../class/UsuarioDAO.php';
-        require_once '../class/Usuario.php';
+    require_once '../class/Usuario.php';
+    require_once 'mailService.php';
         
 	$usuarioDAO = new UsuarioDAO();	
         $usuario = new Usuario();	
@@ -20,6 +21,17 @@
               
             if($usuario->getStatus()==1){
                 if($usuario->getConfirmado()==0){
+
+                    $message = "<html>
+                    Olá prezado(a) <b>{$usuario->getNome()}</b>,<br>
+                    segue o link para confirmação de seu e-mail.<br><br>
+                  
+                    <a href='https://localhost/IHCTP/SGC/control/confirmarEmail.php?code={$usuario->getIdUsuario()}'>Confirmar e-mail</a><br><br>
+                    A equipe do Coleções mania agradece.
+                    </html>";
+
+                    sendMail($usuario->getEmail(),"Confirmação de e-mail",$message);
+
                     echo "<script>alert('Confirme seu e-mail utilizando a mensagem enviada em sua caixa de entrada.');</script>";
                     echo "<script> location.href='../pages/index.php';</script>";
                 }
