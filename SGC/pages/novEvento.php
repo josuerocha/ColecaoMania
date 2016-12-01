@@ -8,8 +8,8 @@ $paises = array();
 $paises = $paisDAO->listar();
 ?>
 
-  <!-- Datepicker -->
-      <link href="componentes/css/datepicker.css" rel="stylesheet">
+    <!-- Datepicker -->
+    <link href="componentes/css/datepicker.css" rel="stylesheet">
 
     <!-- Declaração padrão de arquivos do bootstrap -->
       <!-- Bootstrap -->
@@ -34,13 +34,13 @@ $paises = $paisDAO->listar();
         <script>
           $(document).ready(function () {
             $('#data').datepicker({
-                format: "dd/mm/yyyy",
-                language: "pt-BR"
+                language: "pt-BR",
+               dateFormat:'d-m-yy'
+
             });
           });
         </script>
-
-    
+   
 <div class="container">
     <div class="row">
         <div class="span12" style="text-align:center; margin: 0 auto;">
@@ -55,7 +55,7 @@ $paises = $paisDAO->listar();
                  </div>
                 
                 <div class="control-group">
-                    <input type="text" placeholder="Data" class="input-medium" name="data" id="data" onblur="ValidaData()" min="15" maxlength="15"  required >
+                    <input type="text" placeholder="Data" class="input-medium" name="data" id="data" onblur="ValidaData()" min="15" maxlength="15"  required>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" class="input-mini form-horizontal" placeholder="hora" id="hora" name="hora" onblur="ValidaHora(this.value)" value="" maxlength="5" required > 
                 </div><!-- /control-group -->
@@ -112,4 +112,3 @@ $paises = $paisDAO->listar();
     </div>
 
 </div>
- 

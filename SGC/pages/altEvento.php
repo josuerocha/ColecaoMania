@@ -44,8 +44,8 @@ if (isset($_POST['cd'])) {
         <script>
           $(document).ready(function () {
             $('#data').datepicker({
-                format: "dd/mm/yyyy",
-                language: "pt-BR"
+               language: "pt-BR",
+               dateFormat:'d-m-yy'
             });
           });
         </script>
@@ -67,7 +67,9 @@ if (isset($_POST['cd'])) {
                     </div>
                  
                  <div class="control-group ">
-                        <input type="text" placeholder="Data" class="input-medium" name="data" id="data" min="15" maxlength="15" onblur="ValidaData(this.value)" value="<?php echo $itemColecao->getData() ?>" required >
+                        <input type="text" placeholder="Data" class="input-medium" name="data" id="data" min="15" maxlength="15" onblur="ValidaData(this.value)" 
+                        value="<?php echo  date('d/m/Y', strtotime($itemColecao->getData())); 
+                        ?>" required >
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" placeholder="Hora" class="input-mini form-horizontal" id="hora" name="hora" onblur="ValidaHora(this.value)" value="<?php echo $itemColecao->getHora() ?>" maxlength="5" required >
                     </div>

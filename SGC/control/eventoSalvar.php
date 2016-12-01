@@ -7,7 +7,13 @@ $evento = new Evento();
 $eventoDAO = new EventoDAO();
 
 $evento->setNome($_POST["nome"]);
-$evento->setData($_POST["data"]);
+
+//echo '<div style="background-color:#f1c40f">'.date("Y/m/d", strtotime($_POST["data"])).'</div>';
+//echo '<div style="background-color:#f1c40f">'.date("Y/d/m", strtotime($_POST["data"])).'</div>';
+
+
+$evento->setData(date("Y/m/d", strtotime($_POST["data"])));
+
 $evento->setHora($_POST["hora"]);
 $evento->setCEP($_POST["cep"]);
 $evento->setCidade($_POST["cidade"]);
@@ -25,6 +31,7 @@ if(isset($_POST["cd"]))
 }else
 {
      $evento->setIdEvento(0);
+
 }
 
 if ($eventoDAO->salvar($evento)) 
