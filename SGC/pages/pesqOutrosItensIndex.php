@@ -103,7 +103,7 @@
 
                             
                             <input type="password" name="senhaLogin" id="senhaLogin" class="span2 input-sm form-control" maxlength="8" min="8" required placeholder="Senha">
-                            <button type="submit" name="login" class=" form-control">Entrar</button>
+                            <button type="submit" name="login" class=" btn-link">Entrar</button>
 
                         </form>
 
