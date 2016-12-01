@@ -9,9 +9,13 @@ $mail = new PHPMailer(true);
 $mail->CharSet = 'UTF-8';
 $mail->isHTML(true);
 $mail->isSMTP();
+
+//$mail->isMail(true);
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
-$mail->SMTPSecure = 'tls';
+//$mail->SMTPSecure = 'tls';
+$mail->SMTPSecure = false;
+
 $mail->SMTPAuth = true;
 $mail->Username = "colecaomaniasgc@gmail.com";
 $mail->Password = "colecaomaniaihc";
