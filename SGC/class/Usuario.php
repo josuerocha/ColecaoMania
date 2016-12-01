@@ -21,6 +21,8 @@ class Usuario
     public $estado;
     public $idPais;
     public $status;
+    public $confirmado;
+    public $recuperarSenha;
 
     function __construct() 
     {
@@ -42,6 +44,8 @@ class Usuario
         $this->setIdIdioma(0);
         $this->setEstado("");
         $this->setIdPais(0);
+        $this->setConfirmado(0);
+        $this->setRecuperarSenha(0);
     }
 
     function __destruct() 
@@ -232,6 +236,25 @@ class Usuario
     function setIdPais($idPais) 
     {
         $this->idPais = $idPais;
+    }
+
+    function getConfirmado() 
+    {
+        return $this->confirmado;
+    }
+
+    function setConfirmado($confirmado) 
+    {
+        $this->confirmado = $confirmado;
+    }
+
+    function getRecuperarSenha(){
+        return $this->recuperarSenha;
+    }
+
+    function setRecuperarSenha($recuperarSenha) 
+    {
+        $this->recuperarSenha = $recuperarSenha;
     }
 }
 ?>

@@ -15,12 +15,12 @@ class UsuarioDAO extends ACrudDAO {
                 $usuario->setStatus(1);
                 $query = "insert into tbusuario"
                         . " (idUsuario, nome, email, telefone, senha, dataNasc, numero, complemento, cep,"
-                        . " imagem, tipo, cidade, bairro, rua, idIdioma,estado,idPais,status) values ('{$usuario->getIdUsuario()}',"
+                        . " imagem, tipo, cidade, bairro, rua, idIdioma,estado,idPais,status,confirmado,recuperarSenha) values ('{$usuario->getIdUsuario()}',"
                         . "'{$usuario->getNome()}','{$usuario->getEmail()}','{$usuario->getTelefone()}',"
                         . "'{$usuario->getSenha()}','{$usuario->getDataNasc()}','{$usuario->getNumero()}',"
                         . "'{$usuario->getComplemento()}','{$usuario->getCEP()}','{$usuario->getImagem()}',"
                         . "'{$usuario->getTipo()}','{$usuario->getCidade()}','{$usuario->getBairro()}',"
-                        . "'{$usuario->getRua()}','{$usuario->getIdIdioma()}','{$usuario->getEstado()}','{$usuario->getIdPais()}','{$usuario->getStatus()}')";
+                        . "'{$usuario->getRua()}','{$usuario->getIdIdioma()}','{$usuario->getEstado()}','{$usuario->getIdPais()}','{$usuario->getStatus()}',,{$usuario->getConfirmado()},{$usuario->getRecuperarSenha()})";
                 $this->conexao->query($query);
                 $codigo = $this->conexao->insert_id;
                 $usuario->setIdUsuario($codigo);
@@ -32,7 +32,7 @@ class UsuarioDAO extends ACrudDAO {
                 $listaDesejos->setIdUsuDono($codigo);
                 $listaDesejosDAO->salvar($listaDesejos);
             } else {
-                $query = "update tbusuario set nome = '{$usuario->getNome()}', email = '{$usuario->getEmail()}', telefone = '{$usuario->getTelefone()}',senha = '{$usuario->getSenha()}',dataNasc = '{$usuario->getDataNasc()}', numero = '{$usuario->getNumero()}', complemento = '{$usuario->getComplemento()}', cep = '{$usuario->getCEP()}', imagem = '{$usuario->getImagem()}',tipo = '{$usuario->getTipo()}',cidade = '{$usuario->getCidade()}', bairro = '{$usuario->getBairro()}', rua = '{$usuario->getRua()}',idIdioma = '{$usuario->getIdIdioma()}',estado ='{$usuario->getEstado()}',idPais= '{$usuario->getIdPais()}'  where idUsuario = {$usuario->getIdUsuario()}";
+                $query = "update tbusuario set nome = '{$usuario->getNome()}', email = '{$usuario->getEmail()}', telefone = '{$usuario->getTelefone()}',senha = '{$usuario->getSenha()}',dataNasc = '{$usuario->getDataNasc()}', numero = '{$usuario->getNumero()}', complemento = '{$usuario->getComplemento()}', cep = '{$usuario->getCEP()}', imagem = '{$usuario->getImagem()}',tipo = '{$usuario->getTipo()}',cidade = '{$usuario->getCidade()}', bairro = '{$usuario->getBairro()}', rua = '{$usuario->getRua()}',idIdioma = '{$usuario->getIdIdioma()}',estado ='{$usuario->getEstado()}',idPais= '{$usuario->getIdPais()}',confirmado= '{$usuario->getConfirmado()}',recuperarSenha= '{$usuario->getRecuperarSenha()}'  where idUsuario = {$usuario->getIdUsuario()}";
                
                 $this->conexao->query($query);
             }
@@ -86,6 +86,8 @@ class UsuarioDAO extends ACrudDAO {
                 $usuario->setEstado($registro['estado']);
                 $usuario->setIdPais($registro['idPais']);
                 $usuario->setStatus($registro['status']);
+                $usuario->setConfirmado($registro['confirmado']);
+                $usuario->setRecuperarSenha($registro['recuperarSenha']);
                 array_push($usuarios, $usuario);
             }
             $resultado->close();
@@ -123,6 +125,8 @@ class UsuarioDAO extends ACrudDAO {
             $usuario->setEstado($registro['estado']);
             $usuario->setIdPais($registro['idPais']);
             $usuario->setStatus($registro['status']);
+            $usuario->setConfirmado($registro['confirmado']);
+            $usuario->setRecuperarSenha($registro['recuperarSenha']);
         } catch (Exception $ex) {
             echo $ex->getFile() . ' : ' . $ex->getLine() . ' : ' . $ex->getMessage();
         }
