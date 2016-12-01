@@ -13,8 +13,7 @@ $mail->isSMTP();
 //$mail->isMail(true);
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
-//$mail->SMTPSecure = 'tls';
-$mail->SMTPSecure = false;
+$mail->SMTPSecure = 'tls';
 
 $mail->SMTPAuth = true;
 $mail->Username = "colecaomaniasgc@gmail.com";
