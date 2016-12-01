@@ -53,7 +53,10 @@ if (!empty($_FILES["arquivo"]["name"])) {
             }
 
             $Image = new Image();
-            $Image->resize(".." . $caminhoImagens . $geraNome, 200, 150);
+
+            list($width, $height, $type, $attr) = getimagesize(".." . $caminhoImagens . $geraNome);
+
+            $Image->resize(".." . $caminhoImagens . $geraNome, ($width/2), ($height/2));
 
             unlink($caminhoServer . $caminhoImagens . $geraNome);
 

@@ -11,6 +11,7 @@ $itemColecao->setIdColecao($_POST["cdC"]);
 
 $itemColecaoDAO->alteraFotoAlbum($itemColecao->getIdColecao(), $itemColecao->getIdItemColecao());
 
-echo "<script>alert('Foto do album definida!'); location.href='../pages/menu.php?pagina=itens&cd={$_POST["cdC"]}';</script>";
+$_SESSION['mensagemModal'] = 'Foto do álbum definida!';
+echo "<script>location.href='../pages/menu.php?pagina=itens&cd={$_POST["cdC"]}';</script>";
 
 ?>
