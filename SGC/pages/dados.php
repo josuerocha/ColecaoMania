@@ -45,7 +45,7 @@ $idiomas = $idiomaDAO->listar();
                 </div><!-- /control-group -->
                 
                  <div class="control-group">
-                        <input type="text" placeholder="E-mail" class="input-xlarge form-horizontal" id="email" name="email" value="<?php echo $usuario->getEmail() ?>" required pattern="^([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+$" maxlength="100">
+                        <input type="text" placeholder="E-mail" class="input-xlarge form-horizontal" id="email" name="email" value="<?php echo $usuario->getEmail() ?>" required pattern="^([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+$" maxlength="100" disabled>
                 </div><!-- /control-group -->
 
                 <div class="control-group">
