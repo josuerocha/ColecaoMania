@@ -20,7 +20,7 @@ class UsuarioDAO extends ACrudDAO {
                         . "'{$usuario->getSenha()}','{$usuario->getDataNasc()}','{$usuario->getNumero()}',"
                         . "'{$usuario->getComplemento()}','{$usuario->getCEP()}','{$usuario->getImagem()}',"
                         . "'{$usuario->getTipo()}','{$usuario->getCidade()}','{$usuario->getBairro()}',"
-                        . "'{$usuario->getRua()}','{$usuario->getIdIdioma()}','{$usuario->getEstado()}','{$usuario->getIdPais()}','{$usuario->getStatus()}',,{$usuario->getConfirmado()},{$usuario->getRecuperarSenha()})";
+                        . "'{$usuario->getRua()}','{$usuario->getIdIdioma()}','{$usuario->getEstado()}','{$usuario->getIdPais()}','{$usuario->getStatus()}',{$usuario->getConfirmado()},{$usuario->getRecuperarSenha()})";
                 $this->conexao->query($query);
                 $codigo = $this->conexao->insert_id;
                 $usuario->setIdUsuario($codigo);
