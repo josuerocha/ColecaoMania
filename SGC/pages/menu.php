@@ -156,6 +156,7 @@ if (!isset($_SESSION['codigo'])) {
                             </ul>
                         </div>
                         <ul class="nav pull-right">
+                            <!-- Mensagens -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <?php $qtd = $notificacaoDAO->notfCount(); ?>
@@ -166,8 +167,9 @@ if (!isset($_SESSION['codigo'])) {
                                         ?></div>
                                     <i class="aweso-globe fa-2x"></i>
                                 </a>
+                                 <!-- Notificações -->
                                 <ul class="dropdown-menu dropdown-extend" role="menu" aria-labelledby="dropdownMenu">
-                                    <li class="dropdown-header"><?php if ($qtd > 1) { ?>Você tem <?php echo $qtd; ?> novas notificações<?php
+                                    <li class="dropdown-header"><?php if ($qtd > 1) { ?><?php echo $qtd; ?> novas notificações<?php
                                         } else {
                                             if ($qtd == 1) {
                                                 ?>Você tem <?php echo $qtd; ?> nova notificação<?php } else { ?>Nenhuma nova notificação.<?php
@@ -181,24 +183,27 @@ if (!isset($_SESSION['codigo'])) {
                                                     <div class="pull-left">
                                                         <img class="media-object" data-src="holder.js/32x32" />
                                                     </div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">
+                                                    <div id="media-body-notific" class="media-body">
+                                                        <h4 id="media-heading-notific" class="media-heading">
                                                             <?php
                                                             $usuNotf = $usuarioDAO->buscarPorId($notificacao->getIdUsuario());
                                                             if($usuNotf->getStatus()==1){
                                                             $nome = $usuNotf->getNome(); 
                                                             echo $nome;
+
                                                             }else
                                                             {
                                                                 echo "Usuário Desativado";
                                                             }
                                                             ?>
+                                                        &nbsp<img id="img-notific" class="media-object pull-right" 
+                                                        src=<?php echo "../" . $caminhoImagens . "" . $usuNotf->getImagem() ?> </img>
                                                         </h4>
                                                         <p>
                                                         <form name="frmC" method="post" action="../control/alteraStatusNotif.php">
                                                             <input type="hidden" id="cdN" name="cdN" value="<?php echo $notificacao->getIdNotf() ?>"/>
                                                             <input type="hidden" id="cd" name="cd" value="<?php echo $notificacao->getIdUsuario() ?>"/>
-                                                            <button type="submit" class="btn-link"><p><?php echo $nome . " " . $notificacao->getObs(); ?></p></button>
+                                                            <button id="desc-notific" type="submit" class="btn-link"><p><?php echo $notificacao->getObs(); ?></p></button>
                                                         </form>
                                                         </p>
                                                     </div>
@@ -208,7 +213,7 @@ if (!isset($_SESSION['codigo'])) {
                                         </li>
                                     <?php } ?>
                                     <li class="dropdown-footer">
-                                        <a tabindex="-1" href="menu.php?pagina=notificacoesUsu"><i class="aweso-angle-right pull-right"></i> Ver todas</a>
+                                        <a tabindex="-1" href="menu.php?pagina=notificacoesUsu"><i class="aweso-angle-right pull-right"></i> <p id="todas-notific">Ver todas</p></a>
                                     </li>
                                 </ul>
                             </li>
@@ -225,6 +230,7 @@ if (!isset($_SESSION['codigo'])) {
                                         ?></div>
                                     <i class="aweso-comment fa-2x"></i>
                                 </a>
+
                                 <ul class="dropdown-menu dropdown-extend" role="menu" aria-labelledby="dropdownMenu">
                                     <li class="dropdown-header">
                                          <?php if ($qtdMsg > 1) { ?>Você tem <?php echo $qtdMsg; ?> novas mensagens<?php
@@ -235,37 +241,54 @@ if (!isset($_SESSION['codigo'])) {
                                         }
                                         ?>
                                     </li>
-                                    <li>
+                                    
                                         <?php
                                         foreach ($mensagens as $mensagem) {
                                             $usuEnvia = $usuarioDAO->buscarPorId($mensagem->getIdUsuEnvia());
                                             $usuRecebe = $usuarioDAO->buscarPorId($mensagem->getIdUsuRecebe());
                                             ?> 
-                                            
+                                            <li>
+                                                <a href="#">
                                                 <div class="media">
                                                     <div class="pull-left">
                                                         <img class="media-object" data-src="<?php echo "../" . $caminhoImagens . "" . $usuEnvia->getImagem() ?>" />
                                                     </div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><small class="pull-right"><?php $data = implode("/", array_reverse(explode("-", $mensagem->getData()))); echo $data.'|'.$mensagem->getHora() ?></small> <?php if($usuEnvia->getStatus()==1){ echo "<br>".$usuEnvia->getNome(); }else{ echo "<br>"."Usuário Desativado"; } ?></h4>
-                                                      
+                                                    <div id="media-body-mensg" class="media-body">
+                                                        <h4  id="media-heading-mens" class="media-heading">
+                                                            <?php if($usuEnvia->getStatus()==1){ 
+                                                                echo "".$usuEnvia->getNome(); 
+                                                            }else{ 
+                                                                echo ""."Usuário Desativado"; 
+                                                            } ?>
+                                                            
+                                                                <small id="date-mens" class="pull-right">
+                                                                    <?php $data = implode("/", array_reverse(explode("-", $mensagem->getData()))); 
+                                                                    echo $data.'|'.$mensagem->getHora() ?>
+                                                                </small> 
+                                                            &nbsp<img id="img-mens" class="media-object pull-right" 
+                                                            src=<?php echo "../" . $caminhoImagens . "" . $usuEnvia->getImagem() ?> </img>
+                                                            
+                                                        </h4>
+                                                      <p>
                                                         <form name="frmC" method="post" action="../control/alteraStatusMsg.php">
                                                             <input type="hidden" id="cdM" name="cdM" value="<?php echo $mensagem->getIdMensagem() ?>"/>
                                                             <input type="hidden" id="cd" name="cd" value="<?php echo $mensagem->getIdUsuEnvia() ?>"/>
-                                                            <button type="submit" class="btn-link">  <p><a><?php echo $mensagem->getTexto() ?></a></p></button>
+                                                            <button id="desc-mens" type="submit" class="btn-link"><p><?php echo $mensagem->getTexto() ?></p></button>
                                                         </form>
+                                                        </p>
                                                     </div>
                                                 </div>
-                                            
+                                            </a>
                                         </li>
                                         <?php } ?>
 
                                         <li class="dropdown-footer">
-                                            <a tabindex="-1" href="menu.php?pagina=minhasMensagens"><i class="aweso-angle-right pull-right"></i> Ver todas</a>
+                                            <a tabindex="-1" href="menu.php?pagina=minhasMensagens"><i class="aweso-angle-right pull-right"></i> <p id="todas-notific">Ver todas</p></a>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
+
                             <ul class="nav pull-right">
                                 <li><a href="menu.php?pagina=topColecionadores">Top 10&nbsp<i class="w-icon-leaderboard w-icon-white w-icon-2x"></i></a></li>
                             </ul>

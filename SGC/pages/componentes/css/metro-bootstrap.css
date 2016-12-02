@@ -2444,6 +2444,7 @@ h1 small,h2 small,h3 small,h4 small,h5 small,h6 small
 	margin: 0;
 	padding: 0;
 	width: 232px;
+	z-index: 0;
 }
 #fade img
 {
