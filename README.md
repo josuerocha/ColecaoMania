@@ -1,3 +1,3 @@
 # ColecaoMania
 
-Social network website for people who have collections as a hobby.
+Social network for collectors and hobbyists developed during Software Engineering and Human-computer Interaction classes.
