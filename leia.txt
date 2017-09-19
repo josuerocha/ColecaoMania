@@ -1,5 +1,0 @@
-1) Crie um bd com o nome colecao_mania e importe o arquivo colecao_mania.sql 
-2)Copie a pasta SGC para C:\xampp\htdocs e rode
-3) Para acessar como administrador use:
-Email: maisa@email.com
-Senha: 12345678
